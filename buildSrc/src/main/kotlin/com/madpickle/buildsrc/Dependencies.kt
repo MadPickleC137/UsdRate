@@ -61,7 +61,7 @@ object Libs{
         object Retrofit{
             private const val version = "2.9.0"
             const val lib = "com.squareup.retrofit2:retrofit:$version"
-            const val xmlParser = "com.squareup.retrofit2:converter-simplexml:$version"
+            const val xmlConverter = "com.tickaroo.tikxml:retrofit-converter:0.8.15"
             const val jsonParser = "com.squareup.retrofit2:converter-gson:$version"
             const val okHttp = "com.squareup.okhttp3:okhttp:4.9.3"
         }

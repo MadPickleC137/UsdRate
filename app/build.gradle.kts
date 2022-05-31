@@ -78,8 +78,7 @@ dependencies {
     implementation (Libs.Android.Room.ktx)
     implementation (Libs.Android.Room.paging)
     implementation (Libs.Android.Room.runtime)
-    implementation (Libs.Android.Retrofit.jsonParser)
-    implementation (Libs.Android.Retrofit.xmlParser)
+    implementation (Libs.Android.Retrofit.xmlConverter)
     implementation (Libs.Android.Retrofit.okHttp)
     implementation (Libs.Android.Retrofit.lib)
     implementation (Libs.Android.Paging.runtime)
@@ -94,6 +93,8 @@ dependencies {
     implementation (Libs.Coroutines.android)
     implementation (Libs.Coroutines.core)
     implementation (Libs.Kotlin.stdlib)
+    implementation (Libs.Logs.timber)
+    implementation (Libs.Coil.coilKt)
 
 
 
@@ -103,4 +104,5 @@ dependencies {
     testImplementation (Libs.Android.junit)
     androidTestImplementation (Libs.Android.junitExt)
     androidTestImplementation (Libs.Android.espresso)
+    androidTestImplementation (Libs.Truth.truthTest)
 }
