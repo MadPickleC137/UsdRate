@@ -78,9 +78,10 @@ dependencies {
     implementation (Libs.Android.Room.ktx)
     implementation (Libs.Android.Room.paging)
     implementation (Libs.Android.Room.runtime)
-    implementation (Libs.Android.Retrofit.xmlConverter)
-    implementation (Libs.Android.Retrofit.okHttp)
-    implementation (Libs.Android.Retrofit.lib)
+    implementation (Libs.Android.Service.okHttp)
+    implementation (Libs.Android.Service.okHttpLogging)
+    implementation (Libs.Android.Service.converter)
+    implementation (Libs.Android.Service.lib)
     implementation (Libs.Android.Paging.runtime)
     implementation (Libs.Android.Paging.guava)
 

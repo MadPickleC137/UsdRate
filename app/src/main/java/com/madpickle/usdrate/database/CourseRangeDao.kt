@@ -6,30 +6,30 @@ import androidx.room.*
  * Created by David Madilyan on 31.05.2022.
  */
 @Dao
-interface CourseDao {
+interface CourseRangeDao {
 
     @Query("SELECT * FROM courses")
-    fun getAllCourses(): List<CourseEntity>
+    fun getAllCourses(): List<CourseRangeEntity>
 
     @Query("SELECT * FROM courses WHERE idCode=:code")
-    fun selectCourseByCode(code: String): CourseEntity
+    fun selectCourseByCode(code: String): CourseRangeEntity
 
     @Insert
-    fun insertCourse(courseEntity: CourseEntity)
+    fun insertCourse(courseEntity: CourseRangeEntity)
 
     @Insert
-    fun insertAllCourses(list: List<CourseEntity>)
+    fun insertAllCourses(list: List<CourseRangeEntity>)
 
     @Update
-    fun updateCourse(newCourseEntity: CourseEntity)
+    fun updateCourseRange(newCourseRangeEntity: CourseRangeEntity)
 
     @Delete
-    fun deleteCourse(courseEntity: CourseEntity)
+    fun deleteCourseRange(courseEntity: CourseRangeEntity)
 }
 
 
 @Entity(tableName = "courses")
-data class CourseEntity(@PrimaryKey(autoGenerate = true) val id: Int,
+data class CourseRangeEntity(@PrimaryKey(autoGenerate = true) val id: Int,
                         val name: String? = null,
                         val idCode: String? = null,
                         val date: String? = null,

@@ -58,12 +58,17 @@ object Libs{
             const val paging = "androidx.room:room-paging:2.5.0-alpha01"
         }
 
-        object Retrofit{
+        object Service{
             private const val version = "2.9.0"
+            private const val xml_version = "0.8.13"
             const val lib = "com.squareup.retrofit2:retrofit:$version"
-            const val xmlConverter = "com.tickaroo.tikxml:retrofit-converter:0.8.15"
+//            const val xmlConverter = "com.tickaroo.tikxml:retrofit-converter:$xml_version"
+//            const val xmlCore = "com.tickaroo.tikxml:core:$xml_version"
+//            const val xmlAnnotation = "com.tickaroo.tikxml:processor:$xml_version"
             const val jsonParser = "com.squareup.retrofit2:converter-gson:$version"
+            const val converter = "com.squareup.retrofit2:converter-scalars:$version"
             const val okHttp = "com.squareup.okhttp3:okhttp:4.9.3"
+            const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:4.7.2"
         }
 
         object Paging{

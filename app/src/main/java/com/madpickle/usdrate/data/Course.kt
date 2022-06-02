@@ -2,9 +2,10 @@ package com.madpickle.usdrate.data
 
 /**
  * Created by David Madilyan on 31.05.2022.
+ *
  * Курс одной валюты по каждому дню
  */
-data class Course(val idCode: String?,
+data class CourseRange(val idCode: String?,
                   val date: String?,
                   val nominal: Int?,
                   val value: Long?)

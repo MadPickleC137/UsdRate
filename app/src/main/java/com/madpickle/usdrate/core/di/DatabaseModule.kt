@@ -1,9 +1,6 @@
-package com.madpickle.usdrate.core.module
+package com.madpickle.usdrate.core.di
 
-import com.madpickle.usdrate.database.AppDatabase
-import com.madpickle.usdrate.database.CourseDao
-import com.madpickle.usdrate.database.CourseDayDao
-import com.madpickle.usdrate.database.CurrencyDao
+import com.madpickle.usdrate.database.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,15 +8,17 @@ import dagger.hilt.components.SingletonComponent
 
 /**
  * Created by David Madilyan on 31.05.2022.
+ *
+ * Модуль по работе с кэшом
  */
 
 @InstallIn(SingletonComponent::class)
 @Module
-class DatabaseModule {
+object DatabaseModule {
 
     @Provides
-    fun provideCourseDao(appDatabase: AppDatabase): CourseDao {
-        return appDatabase.courseDao()
+    fun provideCourseDao(appDatabase: AppDatabase): CourseRangeDao {
+        return appDatabase.courseRangeDao()
     }
 
     @Provides
