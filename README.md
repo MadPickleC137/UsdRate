@@ -10,7 +10,7 @@
 И просьба указать, сколько часов ушло на выполнение тестового задания.
 
 ## Архитектура надеюсь в результате будет выглядить как то так
-<img src="arсh.png" alt=""/>
+<img src="sample.png" alt=""/>
 
 ### Документация по интересным библиотекам
 (парсинг xml)[https://github.com/Tickaroo/tikxml/blob/master/docs/AnnotatingModelClasses.md]
