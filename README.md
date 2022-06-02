@@ -11,9 +11,6 @@
 
 ## Архитектура надеюсь в результате будет выглядить как то так
 ![image](/app/src/main/arсh.png)
-<p align="center">
-  <img src="/app/src/main/arсh.png" alt="chucker icon" width="30%"/>
-</p>
 
 ### Документация по интересным библиотекам
 (парсинг xml)[https://github.com/Tickaroo/tikxml/blob/master/docs/AnnotatingModelClasses.md]
