@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server
+package com.madpickle.usdrate.remote
 
 /**
  * Created by David Madilyan on 02.06.2022.
@@ -10,5 +10,4 @@ package com.madpickle.usdrate.server
 interface IListener<T> {
     fun onResponse(response: T)
     fun onError() {}
-    fun onError(message: String?) {}
 }

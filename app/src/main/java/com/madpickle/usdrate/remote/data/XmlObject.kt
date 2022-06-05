@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server.data
+package com.madpickle.usdrate.remote.data
 
 /**
  * Created by David Madilyan on 02.06.2022.

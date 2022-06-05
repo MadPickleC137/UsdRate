@@ -1,6 +1,6 @@
 package com.madpickle.usdrate.core.di
 
-import com.madpickle.usdrate.server.ICbrService
+import com.madpickle.usdrate.remote.ICbrService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

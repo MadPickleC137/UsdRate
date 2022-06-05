@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/item_card_background"
+    app:cardCornerRadius="5dp"
+    app:strokeWidth="0dp"
+    app:strokeColor="@color/transparent"
+    app:elevation="4dp"
+    android:elevation="4dp"
+    style="@style/RippleEffect"
+    android:layout_margin="@dimen/padding_small"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_small"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/char_code"
+            android:text="@string/plug_text_1"
+            android:padding="@dimen/padding_small"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_blue_round_corners"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_top_4dp"
+            android:text="@string/plug_text_2"/>
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_top_4dp"
+            android:text="@string/item_course_value"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

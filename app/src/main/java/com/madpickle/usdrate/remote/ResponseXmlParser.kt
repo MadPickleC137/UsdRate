@@ -1,9 +1,9 @@
-package com.madpickle.usdrate.server
+package com.madpickle.usdrate.remote
 
-import com.madpickle.usdrate.server.data.XmlObject
+import com.madpickle.usdrate.remote.data.XmlObject
 import org.xmlpull.v1.XmlPullParser
 import timber.log.Timber
-import com.madpickle.usdrate.server.data.CourseDayResponse
+import com.madpickle.usdrate.remote.data.CourseDayResponse
 
 /**
  * Created by David Madilyan on 02.06.2022.

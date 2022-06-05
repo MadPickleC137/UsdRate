@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server.data
+package com.madpickle.usdrate.remote.data
 
 import com.madpickle.usdrate.data.Currency
 import kotlin.jvm.Throws

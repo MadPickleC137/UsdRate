@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server
+package com.madpickle.usdrate.remote
 
 import okhttp3.ResponseBody
 import org.xmlpull.v1.XmlPullParser

@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.madpickle.usdrate.core.utils.BASE_URL
 import com.madpickle.usdrate.core.utils.DATA_BASE_NAME
 import com.madpickle.usdrate.database.AppDatabase
-import com.madpickle.usdrate.server.XmlConverterFactory
+import com.madpickle.usdrate.remote.XmlConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

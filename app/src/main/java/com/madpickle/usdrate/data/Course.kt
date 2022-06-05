@@ -1,5 +1,7 @@
 package com.madpickle.usdrate.data
 
+import java.util.*
+
 /**
  * Created by David Madilyan on 31.05.2022.
  *

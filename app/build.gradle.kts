@@ -12,6 +12,7 @@ repositories {
     gradlePluginPortal()
     google()
     mavenCentral()
+    maven( "https://www.jitpack.io")
 }
 
 android {
@@ -66,6 +67,7 @@ dependencies {
 
     annotationProcessor (Libs.Android.Room.annotationProcessor)
 
+    implementation (Libs.Android.viewBindingDelegate)
     implementation( Libs.Android.DI.hiltAndroid)
     implementation (Libs.Android.DI.hiltFragment)
     implementation (Libs.Android.Lifecycle.liveData)
@@ -89,6 +91,8 @@ dependencies {
     implementation (Libs.Android.appcompat)
     implementation (Libs.Android.material)
     implementation (Libs.Android.constraintLayout)
+    implementation (Libs.Android.Ui.chart)
+    implementation (Libs.Android.Ui.layoutManager)
     implementation (Libs.Android.constraintLayout)
 
     implementation (Libs.Coroutines.android)

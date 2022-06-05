@@ -19,6 +19,7 @@ object Libs{
     }
 
     object Android{
+        const val viewBindingDelegate = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
         const val core = "androidx.core:core-ktx:1.7.0"
         const val appcompat = "androidx.appcompat:appcompat:1.4.1"
         const val material = "com.google.android.material:material:1.6.0"
@@ -75,6 +76,11 @@ object Libs{
             private const val version = "3.1.1"
             const val runtime = "androidx.paging:paging-runtime:$version"
             const val guava = "androidx.paging:paging-guava:$version"
+        }
+
+        object Ui {
+            const val chart = "com.github.AAChartModel:AAChartCore-Kotlin:7.1.0"
+            const val layoutManager = "com.google.android.flexbox:flexbox:3.0.0"
         }
     }
 

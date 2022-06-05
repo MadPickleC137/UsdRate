@@ -13,4 +13,31 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextStyleBlue">
+        <item name="android:textColor">@color/purple_500</item>
+    </style>
+    <style name="Toolbar.SubtitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TabLayout.RoundCorners" parent="Widget.Design.TabLayout">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/bg_round_corners</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicator">@drawable/tab_item_bg</item>
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabRippleColor">@color/black_10</item>
+        <item name="tabTextAppearance">@style/TextStyleBlue</item>
+        <item name="tabUnboundedRipple">true</item>
+        <item name="tabTextColor">@color/black</item>
+    </style>
+
+    <style name="RippleEffect" >
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
 </resources>

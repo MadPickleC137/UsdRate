@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="progress_bar_indicator">#DD2C00</color>
+    <color name="progress_bar_track">#DDD7D7</color>
+    <color name="progress_bar_background">#9F13219E</color>
+    <color name="black_10">#1A101828</color>
+    <color name="value_color">#0A2251</color>
+    <color name="item_card_background">#814B54A3</color>
+    <color name="transparent">#00000000</color>
 </resources>

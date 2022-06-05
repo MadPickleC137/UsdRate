@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server.data
+package com.madpickle.usdrate.remote.data
 
 import com.madpickle.usdrate.data.CourseDay
 import kotlin.jvm.Throws

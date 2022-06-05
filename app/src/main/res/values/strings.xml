@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">UsdRate</string>
+
+    <string name="menu_calendar_title">Выбор даты</string>
+    <string name="menu_alarm_title">Добавить правило</string>
+
+    <string name="daily_courses_title">Курс валют</string>
+    <string name="daily_courses_subtitle">Текущая дата: %s</string>
+
+    <string name="course_list">Список</string>
+    <string name="course_chart">График</string>
+
+    <string name="item_course_value">Стоимость: %s руб.</string>
+    <string name="item_course_nominal">Номинал: %s</string>
+    <string name="item_course_date">Дата: %S</string>
+
+    <string name="disconnect_description">Нет соединения с сервером</string>
+    <string name="course_range_subtitle">c %s по %s</string>
+    <string name="plug_text_1">USD</string>
+    <string name="plug_text_2">Доллар США</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.server
+package com.madpickle.usdrate.remote
 
 import org.xmlpull.v1.XmlPullParser
 import retrofit2.Call

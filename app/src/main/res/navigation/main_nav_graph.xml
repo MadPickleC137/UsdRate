@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dailyCoursesFragment">
+
+    <fragment
+        android:id="@+id/dailyCoursesFragment"
+        android:name="com.madpickle.usdrate.dailyCourses.DailyCoursesFragment"
+        android:label="fragment_dialy_courses"
+        tools:layout="@layout/fragment_dialy_courses" >
+        <action
+            android:id="@+id/action_dailyCoursesFragment_to_courseRangeFragment"
+            app:destination="@id/courseRangeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/dailyCoursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseRangeFragment"
+        android:name="com.madpickle.usdrate.courseRange.CourseRangeFragment"
+        android:label="fragment_course_range"
+        tools:layout="@layout/fragment_course_range" />
+</navigation>
