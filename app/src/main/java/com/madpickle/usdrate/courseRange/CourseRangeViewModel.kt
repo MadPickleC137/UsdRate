@@ -3,7 +3,6 @@ package com.madpickle.usdrate.courseRange
 import androidx.lifecycle.*
 import com.madpickle.usdrate.R
 import com.madpickle.usdrate.core.AppContext
-import com.madpickle.usdrate.core.extensions.combine
 import com.madpickle.usdrate.core.extensions.getStringSlashDate
 import com.madpickle.usdrate.data.CourseDay
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,15 +34,20 @@ class CourseRangeViewModel @Inject constructor(private val appContext: AppContex
     }
 
     val listCourse = collectorData.switchMap { request ->
-        liveData {
+        liveData(viewModelScope.coroutineContext)  {
             repository.flowCourseRange(request.code ?: "", request.start, request.end
             ).collect {
                 this.emit(it)
             }
         }
     }
+
+    val chartSeries = listCourse.map { list ->
+        list.mapNotNull { it.value }
+    }
+
     val resultState = collectorData.switchMap { request ->
-        liveData {
+        liveData(viewModelScope.coroutineContext)  {
             emitSource(repository.syncCourseRange(request.start, request.end, request.code ?: ""))
         }
     }

@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import com.madpickle.usdrate.R
+import com.madpickle.usdrate.calendar.showRangeDatePicker
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.core.extensions.observe
 import com.madpickle.usdrate.courseRange.courseChart.CourseChartFragment
@@ -63,9 +64,23 @@ class CourseRangeFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.calendar_item ->{
+                    showCalendar()
+                }
+                R.id.add_alarm_item ->{}
+            }
+            return@setOnMenuItemClickListener true
+        }
         initObservers()
 
+    }
+
+    private fun showCalendar() {
+        showRangeDatePicker(requireContext(), childFragmentManager){ start, end ->
+
+        }
     }
 
     private fun initObservers() {

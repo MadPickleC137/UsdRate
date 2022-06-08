@@ -14,4 +14,6 @@
     <color name="value_color">#0A2251</color>
     <color name="item_card_background">#81E2E3ED</color>
     <color name="transparent">#00000000</color>
+    <color name="chart_background">#243A88</color>
+    <color name="chart_series">#DF71298C</color>
 </resources>

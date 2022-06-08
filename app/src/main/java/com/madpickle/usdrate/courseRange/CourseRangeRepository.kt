@@ -6,9 +6,7 @@ import com.madpickle.usdrate.core.extensions.convertToDate
 import com.madpickle.usdrate.data.CourseRange
 import com.madpickle.usdrate.database.usecase.CoursesRangeUseCase
 import com.madpickle.usdrate.remote.CbrUseCase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.withContext
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*

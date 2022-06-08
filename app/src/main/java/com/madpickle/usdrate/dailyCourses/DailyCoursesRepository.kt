@@ -5,10 +5,8 @@ import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.data.CourseDay
 import com.madpickle.usdrate.database.usecase.CourseDayUseCase
 import com.madpickle.usdrate.remote.CbrUseCase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**

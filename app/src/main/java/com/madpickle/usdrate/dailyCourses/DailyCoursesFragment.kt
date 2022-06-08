@@ -13,6 +13,7 @@ import com.google.android.flexbox.*
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.madpickle.usdrate.R
+import com.madpickle.usdrate.calendar.showDailyDatePicker
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.core.extensions.observe
 import com.madpickle.usdrate.core.extensions.safeNavigate
@@ -65,6 +66,13 @@ class DailyCoursesFragment : Fragment() {
             alignItems = AlignItems.CENTER
             flexDirection = FlexDirection.ROW
             flexWrap = FlexWrap.WRAP
+        }
+
+        binding.toolbar.setOnMenuItemClickListener {
+            showDailyDatePicker(requireContext(), childFragmentManager){
+                viewModel.setDay(it)
+            }
+            return@setOnMenuItemClickListener true
         }
     }
 

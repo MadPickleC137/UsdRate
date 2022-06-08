@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.madpickle.usdrate.R
 import com.madpickle.usdrate.data.CourseRange
 import com.madpickle.usdrate.databinding.ItemCourseRangeBinding
-import com.madpickle.usdrate.databinding.ItemDailyCourseBinding
 
 /**
  * Created by David Madilyan on 06.06.2022.

@@ -5,9 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".courseRange.courseChart.CourseChartFragment">
 
-    <TextView
+    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+        android:id="@+id/course_chart_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="course chart fragment" />
+        android:layout_marginTop="@dimen/margin_chart"
+        android:layout_marginBottom="@dimen/margin_chart">
+    </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
 </FrameLayout>

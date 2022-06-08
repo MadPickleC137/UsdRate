@@ -5,4 +5,5 @@
     <dimen name="margin_top_4dp">4dp</dimen>
     <dimen name="padding_small">12dp</dimen>
     <dimen name="padding_very_small">6dp</dimen>
+    <dimen name="margin_chart">50dp</dimen>
 </resources>

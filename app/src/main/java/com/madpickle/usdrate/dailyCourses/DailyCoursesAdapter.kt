@@ -11,7 +11,7 @@ import com.madpickle.usdrate.databinding.ItemDailyCourseBinding
 /**
  * Created by David Madilyan on 05.06.2022.
  */
-class DailyCoursesAdapter(val context: Context, val onItemClick: (CourseDay) -> Unit):
+class DailyCoursesAdapter(val context: Context, private val onItemClick: (CourseDay) -> Unit):
     RecyclerView.Adapter<DailyCoursesAdapter.DailyCoursesViewHolder>() {
     private val items = mutableListOf<CourseDay>()
 
