@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.transform
+import java.time.LocalDateTime
 import java.util.*
 import javax.inject.Inject
 
@@ -21,8 +22,8 @@ class CoursesRangeUseCase @Inject constructor(private val courseRangeDao: Course
     /**
      * Получение потока с данными о курсе одной валюты по датам
      * @param code код валюты, приходит с бэка
-     * @param start дата начала выборки
-     * @param end дата окончания выборки
+     * @param start дата начала выборки, форматом даты dd.MM.yyyy
+     * @param end дата окончания выборки, форматом даты dd.MM.yyyy
      * */
     suspend fun getFlowCourseRange(code: String, start: Date, end: Date): Flow<List<CourseRange>> {
         return courseRangeDao.getCoursesByCode(code).transform { entities ->
@@ -48,7 +49,7 @@ class CoursesRangeUseCase @Inject constructor(private val courseRangeDao: Course
         val listEntities = listCurrencies.map {
             CourseRangeEntity.fromCourseRange(it)
         }
-        courseRangeDao.insertCourseRanges(listEntities)
+        courseRangeDao.addNewCourseRanges(listEntities)
     }
 
     /**

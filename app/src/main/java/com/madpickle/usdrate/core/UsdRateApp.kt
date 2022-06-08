@@ -9,7 +9,7 @@ import timber.log.Timber
  * Created by David Madilyan on 31.05.2022.
  */
 @HiltAndroidApp
-class UsdRateApp(): Application() {
+class UsdRateApp: Application() {
 
     override fun onCreate() {
         super.onCreate()

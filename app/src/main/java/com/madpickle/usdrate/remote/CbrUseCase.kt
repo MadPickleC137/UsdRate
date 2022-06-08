@@ -23,6 +23,9 @@ import kotlin.coroutines.resumeWithException
  */
 class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
 
+    /**
+     * Не понадобилось
+     * */
     suspend fun getAllCurrencies(): List<Currency>?{
        val parser = cbrICbrService.fetchAllCurrencies()
         val currencies: List<Currency>? = suspendCancellableCoroutine { continuation ->
@@ -52,11 +55,11 @@ class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
      *
      * Основной способ в приложении
      * */
-    suspend fun getCourseByDay(dayDate: String): List<CourseDay>? {
-        val xmlParser = cbrICbrService.getCourseByDay(dayDate)
+    suspend fun getCourseByDay(dayDate: String): List<CourseDay>? = withContext(Dispatchers.IO) {
+        val parserXml = cbrICbrService.getCourseByDay(dayDate)
         val listCourseDay: List<CourseDay>? = suspendCancellableCoroutine { continuation ->
-            xmlParser.enqueue(object: Callback<XmlPullParser> {
-                override fun onResponse(call: Call<XmlPullParser>, response: Response<XmlPullParser>) {
+            parserXml.enqueue(object: Callback<XmlPullParser?> {
+                override fun onResponse(call: Call<XmlPullParser?>, response: Response<XmlPullParser?>) {
                     if(response.isSuccessful){
                         val parser = ResponseXmlParser(response.body(), VALUTE)
                         val dataList = parser.parseObject(CourseDayResponse()).map {
@@ -65,23 +68,25 @@ class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
                         continuation.resume(dataList)
                     }
                 }
-                override fun onFailure(call: Call<XmlPullParser>, t: Throwable) {
+                override fun onFailure(call: Call<XmlPullParser?>, t: Throwable) {
                     if (continuation.isActive) {
                         continuation.resumeWithException(t)
                     }
                 }
             })
         }
-        return listCourseDay
+        return@withContext listCourseDay
     }
 
     /**
      * Способ получения данных через колбэк [IListener]
      * */
+    @Deprecated("Слишком много слушателей, ухудшается читаемость кода, " +
+            "лучше использовать suspendCancellableCoroutine для получения данных из колбэка")
     suspend fun getCourseByDayAlt(dayDate: String, listener: IListener<List<CourseDay>?>)
     = withContext(Dispatchers.IO) {
-        cbrICbrService.getCourseByDay(dayDate).enqueue(object: Callback<XmlPullParser> {
-            override fun onResponse(call: Call<XmlPullParser>, response: Response<XmlPullParser>) {
+        cbrICbrService.getCourseByDay(dayDate).enqueue(object: Callback<XmlPullParser?> {
+            override fun onResponse(call: Call<XmlPullParser?>, response: Response<XmlPullParser?>) {
                 if(response.isSuccessful){
                     val parser = ResponseXmlParser(response.body(), VALUTE)
                     val dataList = parser.parseObject(CourseDayResponse()).map {
@@ -91,7 +96,7 @@ class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
                 }
             }
 
-            override fun onFailure(call: Call<XmlPullParser>, t: Throwable) {
+            override fun onFailure(call: Call<XmlPullParser?>, t: Throwable) {
                 listener.onError()
             }
         })
@@ -100,7 +105,7 @@ class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
 
     suspend fun getCourseRange(start: String,
                                end: String,
-                               idCode: String): List<CourseRange>?{
+                               idCode: String): List<CourseRange>? = withContext(Dispatchers.IO) {
         val xmlResponse = cbrICbrService.getCourseByRange(start, end, idCode)
         val coursesRange: List<CourseRange>? = suspendCancellableCoroutine { continuation ->
             xmlResponse.enqueue(object: Callback<XmlPullParser> {
@@ -121,6 +126,6 @@ class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
                 }
             })
         }
-        return coursesRange
+        return@withContext coursesRange
     }
 }

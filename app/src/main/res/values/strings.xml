@@ -13,9 +13,11 @@
     <string name="item_course_value">Стоимость: %s руб.</string>
     <string name="item_course_nominal">Номинал: %s</string>
     <string name="item_course_date">Дата: %S</string>
+    <string name="course_range_title_plug">Какая-то валюта</string>
+    <string name="course_range_subtitle">c %s по %s</string>
 
     <string name="disconnect_description">Нет соединения с сервером</string>
-    <string name="course_range_subtitle">c %s по %s</string>
     <string name="plug_text_1">USD</string>
     <string name="plug_text_2">Доллар США</string>
+    <string name="empty_content_description">Ничего не найдено, повторите попытку позже</string>
 </resources>

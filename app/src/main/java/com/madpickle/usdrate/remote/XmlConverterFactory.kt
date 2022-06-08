@@ -3,6 +3,7 @@ package com.madpickle.usdrate.remote
 import okhttp3.ResponseBody
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
+import retrofit2.Call
 import retrofit2.Converter
 import retrofit2.Retrofit
 import timber.log.Timber
@@ -19,6 +20,7 @@ import java.lang.reflect.Type
 class XmlConverterFactory private constructor(): Converter.Factory() {
 
     companion object{
+        private const val ENCODING = "windows-1251"
         fun create() = XmlConverterFactory()
     }
 
@@ -26,18 +28,12 @@ class XmlConverterFactory private constructor(): Converter.Factory() {
         retrofit: Retrofit
     ): Converter<ResponseBody, *>? {
         return try {
-            Converter { response ->
+            Converter<ResponseBody, XmlPullParser> { response ->
                 val factory = XmlPullParserFactory.newInstance()
                 factory.isNamespaceAware = true
                 val xpp: XmlPullParser = factory.newPullParser()
-                val content = StringBuilder()
-                val reader = BufferedReader(response.byteStream().reader())
-                var line = reader.readLine()
-                while (line != null) {
-                    content.append(line)
-                    line = reader.readLine()
-                }
-                return@Converter xpp.setInput(StringReader(content.toString()))
+                xpp.setInput(response.byteStream(), ENCODING)
+                return@Converter xpp
             }
         } catch (e: Exception){
             Timber.e(e.message.toString())

@@ -23,14 +23,19 @@
             app:titleCentered="true"
             app:menu="@menu/tool_bar_menu"
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
-            app:titleTextAppearance="@style/Toolbar.TitleText"
-            app:navigationIcon="@drawable/ic_arrow_back"/>
+            app:titleTextAppearance="@style/Toolbar.TitleText"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/snack_bar_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <include
+        android:id="@+id/layout_empty_data"
+        android:visibility="gone"
+        tools:visibility="gone"
+        layout="@layout/layout_empty_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_daily_courses"

@@ -24,11 +24,11 @@ class DailyCoursesRepository @Inject constructor(private val cbrUseCase: CbrUseC
      * */
     suspend fun syncDailyCourse(day: String): MutableLiveData<SyncResult> = coroutineScope {
         val result = MutableLiveData(SyncResult.LOADING)
-        val response = withContext(Dispatchers.IO){ cbrUseCase.getCourseByDay(day) }
+        val response = cbrUseCase.getCourseByDay(day)
         when {
             response == null -> result.value = SyncResult.ERROR
             response.isNotEmpty() -> {
-                courseDayUseCase.putNewCoursesDay(response)
+                courseDayUseCase.putNewCoursesDay(response, day)
                 result.value = SyncResult.SUCCESS
             }
             else -> result.value = SyncResult.EMPTY

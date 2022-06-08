@@ -13,9 +13,9 @@ class CourseDayResponse(): XmlObject<CourseDayResponse>() {
     private var nominal: Int? = null
     private var charCode: String? = null
     private var name: String? = null
-    private var value: Long? = null
+    private var value: Double? = null
 
-    constructor(_name: String?, _charCode: String?, _idCode: String?, _nominal: Int?, _value: Long?): this(){
+    constructor(_name: String?, _charCode: String?, _idCode: String?, _nominal: Int?, _value: Double?): this(){
         this.name = _name
         this.charCode = _charCode
         this.idCode = _idCode
@@ -29,7 +29,7 @@ class CourseDayResponse(): XmlObject<CourseDayResponse>() {
         this.nominal = map["Nominal"]?.toInt()
         this.charCode = map["CharCode"]
         this.name = map["Name"]
-        this.value = map["Value"]?.toLong()
+        this.value = map["Value"]?.replace(",", ".")?.toDouble()
         this.idCode = map["ID"]
        return CourseDayResponse(name, charCode, idCode, nominal, value)
     }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.madpickle.usdrate.R
 import com.madpickle.usdrate.data.CourseDay
 import com.madpickle.usdrate.databinding.ItemDailyCourseBinding
 
@@ -26,11 +27,25 @@ class DailyCoursesAdapter(val context: Context, val onItemClick: (CourseDay) -> 
 
         holder.binding.charCode.text = item.charCode ?: ""
         holder.binding.name.text = item.name ?: ""
-        holder.binding.value.text = (item.value ?: 0.0).toString()
+        holder.binding.value.text = String.format(context.getString(R.string.item_course_value),
+            (item.value ?: 0.0).toString())
         holder.binding.root.setOnClickListener {
             onItemClick.invoke(item)
         }
     }
 
     override fun getItemCount() = items.size
+
+    fun clearAll(){
+        items.clear()
+        notifyItemRangeRemoved(0, itemCount)
+    }
+
+    fun updateItems(newItems: List<CourseDay>){
+        if(items != newItems){
+            items.clear()
+            items.addAll(newItems)
+            notifyItemRangeInserted(0, itemCount)
+        }
+    }
 }

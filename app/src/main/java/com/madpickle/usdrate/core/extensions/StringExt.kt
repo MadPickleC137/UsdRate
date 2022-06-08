@@ -2,6 +2,8 @@ package com.madpickle.usdrate.core.extensions
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 /**
@@ -12,14 +14,34 @@ fun String?.getSimpleDate(): Date? {
     var date: Date? = null
     try {
         checkNotNull(this)
-        val formatStrings = listOf("dd.MM.yyyy", "dd/MM/yyyy")
-        for(format in formatStrings){
-            try {
-                val formatter = SimpleDateFormat(format, Locale.getDefault())
-                date = formatter.parse(this)
-                break
-            } catch (e: ParseException) { }
-        }
+        val formatString = "dd.MM.yyyy"
+        val formatter = SimpleDateFormat(formatString, Locale.getDefault())
+        date = formatter.parse(this)
     }catch (e: Exception){ }
     return date
+}
+
+/**
+ * исходная сторка должна быть формата dd/MM/yyyy
+ * */
+fun String.convertToDate(): Date? {
+    var date: Date? = null
+    try {
+        checkNotNull(this)
+        val formatString = "dd/MM/yyyy"
+        val formatter = SimpleDateFormat(formatString, Locale.getDefault())
+        date = formatter.parse(this)
+    }catch (e: Exception){ }
+    return date
+}
+
+//dd.MM.yyyy
+fun LocalDateTime?.getStringPointDate(): String{
+    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+    return if(this != null) formatter.format(this) else ""
+}
+
+fun LocalDateTime?.getStringSlashDate(): String{
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    return if(this != null) formatter.format(this) else ""
 }

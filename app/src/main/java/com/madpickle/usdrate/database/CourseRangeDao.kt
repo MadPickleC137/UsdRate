@@ -11,18 +11,29 @@ import kotlinx.coroutines.flow.Flow
 interface CourseRangeDao {
 
     @Query("SELECT * FROM courses")
-    suspend fun getAllCourses(): Flow<List<CourseRangeEntity>>
+    fun getAllCourses(): Flow<List<CourseRangeEntity>>
 
     @Query("SELECT * FROM courses WHERE idCode=:code")
-    suspend fun getCoursesByCode(code: String): Flow<List<CourseRangeEntity>>
+    fun getCoursesByCode(code: String): Flow<List<CourseRangeEntity>>
 
+
+    @Transaction
+    suspend fun addNewCourseRanges(list: List<CourseRangeEntity>){
+        list.forEach {
+            deleteByDate(it.date)
+        }
+        insertCourseRanges(list)
+    }
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertCourseRanges(list: List<CourseRangeEntity>)
 
 
     @Delete
-    suspend fun deleteItemCourse(courseEntity: CourseRangeEntity)
+    suspend fun deleteItemsCourse(list: List<CourseRangeEntity>)
+
+    @Query("DELETE FROM courses WHERE date = :date")
+    suspend fun deleteByDate(date: String?)
 
     @Query("DELETE FROM courses")
     suspend fun deleteAll()
@@ -33,7 +44,7 @@ interface CourseRangeDao {
 data class CourseRangeEntity(@PrimaryKey(autoGenerate = true) val id: Int = 0,
                         val idCode: String? = null,
                         val date: String? = null,
-                        val value: Long? = null,
+                        val value: Double? = null,
                         val nominal: Int? = null){
     fun toCourseRange() = CourseRange(idCode, date, nominal, value)
 

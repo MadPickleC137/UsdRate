@@ -3,27 +3,37 @@ package com.madpickle.usdrate.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import by.kirich1409.viewbindingdelegate.viewBinding
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.madpickle.usdrate.R
 import com.madpickle.usdrate.core.extensions.setSystemNavBarColor
 import com.madpickle.usdrate.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
-    private val binding by viewBinding(ActivityMainBinding::bind)
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setSystemNavBarColor(R.color.purple_500)
         setContentView(binding.root)
-        initViews()
+        initNavController()
     }
 
-    private fun initViews() {
-
+    private fun initNavController() {
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
     }
+
+    fun setProgressVisible(isVisible: Boolean){
+        binding.progressBar.isVisible = isVisible
+    }
+
+    override
+    fun onSupportNavigateUp() = navController.navigateUp()
 }

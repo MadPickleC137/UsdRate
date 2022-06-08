@@ -9,5 +9,5 @@ import androidx.lifecycle.Observer
  */
 
 fun <T> Fragment.observe(liveData: LiveData<T>, observer: (T?) -> Unit) {
-    liveData.observe(viewLifecycleOwner, Observer { observer(it) })
+    liveData.observe(viewLifecycleOwner) { observer(it) }
 }

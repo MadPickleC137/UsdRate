@@ -20,13 +20,6 @@ class CourseChartFragment : Fragment() {
         ViewModelProvider(requireParentFragment())[CourseRangeViewModel::class.java]
     }
 
-    companion object {
-        fun newInstance() = CourseChartFragment().apply {
-            arguments = Bundle().apply {
-            }
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

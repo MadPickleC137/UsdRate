@@ -2,6 +2,7 @@ package com.madpickle.usdrate.core.di
 
 import android.content.Context
 import androidx.room.Room
+import com.madpickle.usdrate.core.AppContext
 import com.madpickle.usdrate.core.utils.BASE_URL
 import com.madpickle.usdrate.core.utils.DATA_BASE_NAME
 import com.madpickle.usdrate.database.AppDatabase
@@ -29,7 +30,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAppContext(@ApplicationContext context: Context) = context
+    fun provideAppContext(@ApplicationContext context: Context): AppContext = AppContext(context)
 
     @Provides
     @Singleton

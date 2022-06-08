@@ -5,7 +5,7 @@ package com.madpickle.usdrate.core.utils
  */
 
 
-const val BASE_URL = "https://cbr.ru/scripts/XML_"
+const val BASE_URL = "https://cbr.ru/scripts/"
 const val DATA_BASE_NAME = "UsdRateDb"
 const val ITEM = "Item"
 const val VALUTE = "Valute"

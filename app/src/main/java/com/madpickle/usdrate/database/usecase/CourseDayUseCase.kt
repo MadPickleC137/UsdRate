@@ -29,7 +29,7 @@ class CourseDayUseCase @Inject constructor(private val courseDayDao: CourseDayDa
 
     /**
      * Получение списка курсов валют по выбранному дню
-     * @param day формат строки содержащий дату: dd.MM.yyyy
+     * @param day формат строки содержащий дату: dd/MM/yyyy
      * */
     suspend fun getCoursesByDay(day: String): Flow<List<CourseDay>>{
         return courseDayDao.selectCourseByDay(day).transform { entityList ->
@@ -43,10 +43,10 @@ class CourseDayUseCase @Inject constructor(private val courseDayDao: CourseDayDa
     /**
      * Добавление новых элементов в таблицу, игнорирование повторяющихся элементов
      * */
-    suspend fun putNewCoursesDay(list: List<CourseDay>){
+    suspend fun putNewCoursesDay(list: List<CourseDay>, day: String){
         val listEntities = list.map {
-            CourseDayEntity.fromCourseDay(it)
+            CourseDayEntity.fromCourseDay(it, day)
         }
-        courseDayDao.insertAllCourseDay(listEntities)
+        courseDayDao.updateAllCourseDay(day, listEntities)
     }
 }

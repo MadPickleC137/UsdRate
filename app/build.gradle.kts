@@ -5,6 +5,7 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id ("kotlin-android")
     id ("kotlin-kapt")
+    id ("kotlin-parcelize")
     id ("dagger.hilt.android.plugin")
 }
 
@@ -67,7 +68,6 @@ dependencies {
 
     annotationProcessor (Libs.Android.Room.annotationProcessor)
 
-    implementation (Libs.Android.viewBindingDelegate)
     implementation( Libs.Android.DI.hiltAndroid)
     implementation (Libs.Android.DI.hiltFragment)
     implementation (Libs.Android.Lifecycle.liveData)

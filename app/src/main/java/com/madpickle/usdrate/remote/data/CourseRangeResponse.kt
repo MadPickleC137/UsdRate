@@ -14,8 +14,8 @@ class CourseRangeResponse(): XmlObject<CourseRangeResponse>() {
     private var idCode: String? = null
     private var date: String? = null
     private var nominal: Int? = null
-    private var value: Long? = null
-    constructor(_idCode: String?, _data: String?, _nominal: Int?, _value: Long?): this(){
+    private var value: Double? = null
+    constructor(_idCode: String?, _data: String?, _nominal: Int?, _value: Double?): this(){
         this.idCode = _idCode
         this.date = _data
         this.nominal = _nominal
@@ -29,7 +29,7 @@ class CourseRangeResponse(): XmlObject<CourseRangeResponse>() {
     override fun toObject(map: Map<String?, String?>): CourseRangeResponse  {
         this.nominal = map["Nominal"]?.toInt()
         this.date = map["Date"]
-        this.value = map["Value"]?.toLong()
+        this.value = map["Value"]?.replace(",", ".")?.toDouble()
         this.idCode = map["Id"]
         return CourseRangeResponse(idCode, date, nominal, value)
     }

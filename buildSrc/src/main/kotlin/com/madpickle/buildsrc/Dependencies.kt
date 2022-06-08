@@ -19,7 +19,6 @@ object Libs{
     }
 
     object Android{
-        const val viewBindingDelegate = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
         const val core = "androidx.core:core-ktx:1.7.0"
         const val appcompat = "androidx.appcompat:appcompat:1.4.1"
         const val material = "com.google.android.material:material:1.6.0"
