@@ -20,14 +20,14 @@ import java.util.*
  */
 
 fun showRangeDatePicker(context: Context, supportFragmentManager: FragmentManager, action: (String, String) -> Unit){
-    val calendar = Calendar.getInstance()
-    calendar.add(Calendar.YEAR , -1 )
+    val startTime = Calendar.getInstance()
+    startTime.add(Calendar.YEAR , -1 )
     val start = Calendar.getInstance()
     start.add(Calendar.MONTH, -1)
     val end = Calendar.getInstance()
     val datePicker = MaterialDatePicker.Builder.dateRangePicker()
         .setCalendarConstraints( CalendarConstraints.Builder()
-            .setStart(calendar.timeInMillis)
+            .setStart(startTime.timeInMillis)
             .setEnd(Date().time)
             .build()
         )

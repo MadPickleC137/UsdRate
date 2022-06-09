@@ -33,9 +33,14 @@ class CourseListAdapter(val context: Context): RecyclerView.Adapter<CourseListAd
 
     override fun getItemCount(): Int = items.size
 
+    private fun clearAll(){
+        notifyItemRangeRemoved(0, itemCount)
+        items.clear()
+    }
+
     fun updateList(newList: List<CourseRange>){
         if(newList != items){
-            items.clear()
+            clearAll()
             items.addAll(newList)
             notifyItemRangeInserted(0, itemCount)
         }

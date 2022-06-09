@@ -19,6 +19,7 @@ import com.madpickle.usdrate.R
 import com.madpickle.usdrate.calendar.showRangeDatePicker
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.core.extensions.observe
+import com.madpickle.usdrate.core.extensions.safeNavigate
 import com.madpickle.usdrate.courseRange.courseChart.CourseChartFragment
 import com.madpickle.usdrate.courseRange.courseList.CourseListFragment
 import com.madpickle.usdrate.data.CourseDay
@@ -69,17 +70,23 @@ class CourseRangeFragment : Fragment() {
                 R.id.calendar_item ->{
                     showCalendar()
                 }
-                R.id.add_alarm_item ->{}
+                R.id.add_alarm_item ->{
+                    viewModel.getCourseDay()?.let { courseDay ->
+                        findNavController().safeNavigate(
+                            R.id.action_courseRangeFragment_to_createNotifyFragment,
+                            CourseDay.toBundle(courseDay)
+                        )
+                    }
+                }
             }
             return@setOnMenuItemClickListener true
         }
         initObservers()
-
     }
 
     private fun showCalendar() {
         showRangeDatePicker(requireContext(), childFragmentManager){ start, end ->
-
+            viewModel.setDateRange(start, end)
         }
     }
 
@@ -118,7 +125,7 @@ class CourseRangeFragment : Fragment() {
             getString(R.string.disconnect_description),
             Snackbar.LENGTH_LONG)
         snackBar.setActionTextColor(ContextCompat.getColor(binding.root.context, R.color.white))
-        snackBar.animationMode = BaseTransientBottomBar.ANIMATION_MODE_FADE
+        snackBar.animationMode = BaseTransientBottomBar.ANIMATION_MODE_SLIDE
         snackBar.show()
     }
 

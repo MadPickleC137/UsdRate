@@ -32,10 +32,13 @@ fun showDailyDatePicker(context: Context, supportFragmentManager: FragmentManage
 
     datePicker.show(supportFragmentManager, context.getString(R.string.select_date_title))
     datePicker.addOnPositiveButtonClickListener { timestamp ->
+        val now = Calendar.getInstance()
         val dateTime =  LocalDateTime.ofInstant(
             Instant.ofEpochMilli(timestamp),
             TimeZone.getDefault().toZoneId())
         Timber.d("PICKED DATE: $dateTime")
-        action.invoke(dateTime)
+        if(now.timeInMillis >= timestamp){
+            action.invoke(dateTime)
+        }
     }
 }

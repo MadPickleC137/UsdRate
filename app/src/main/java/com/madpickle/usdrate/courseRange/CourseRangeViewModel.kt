@@ -64,6 +64,8 @@ class CourseRangeViewModel @Inject constructor(private val appContext: AppContex
         courseDay.value = params
     }
 
+    fun getCourseDay() = courseDay.value
+
     fun setDateRange(start: String, end: String){
         dateRange.value = Pair(start, end)
     }

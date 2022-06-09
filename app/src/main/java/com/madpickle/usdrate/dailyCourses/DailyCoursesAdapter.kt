@@ -36,14 +36,14 @@ class DailyCoursesAdapter(val context: Context, private val onItemClick: (Course
 
     override fun getItemCount() = items.size
 
-    fun clearAll(){
-        items.clear()
+    private fun clearAll(){
         notifyItemRangeRemoved(0, itemCount)
+        items.clear()
     }
 
     fun updateItems(newItems: List<CourseDay>){
         if(items != newItems){
-            items.clear()
+            clearAll()
             items.addAll(newItems)
             notifyItemRangeInserted(0, itemCount)
         }

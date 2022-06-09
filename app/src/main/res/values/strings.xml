@@ -19,8 +19,23 @@
     <string name="disconnect_description">Нет соединения с сервером</string>
     <string name="plug_text_1">USD</string>
     <string name="plug_text_2">Доллар США</string>
+
     <string name="empty_content_description">Ничего не найдено, повторите попытку позже</string>
     <string name="chart_series_title">Стоимость</string>
     <string name="chart_yaxis_title">в рублях</string>
     <string name="select_date_title">Выбор даты</string>
+
+    <string name="create_notify_button_text">Создать</string>
+    <string name="create_notify_tooltip">Обратите внимание!\nЕсли курс валюты на текщий день опустится ниже минимального значения или поднимится выше максимального значения, то на устройство пользователя придет уведомление об этом.</string>
+    <string name="create_notify_hint_max">Максимальное значение</string>
+    <string name="create_notify_hint_min">Минимальное значение</string>
+    <string name="create_notify_course_title">Выбранная валюта: %s</string>
+    <string name="create_notify_title">Создание уведомления</string>
+    <string name="create_notify_value">Текущий курс: %s</string>
+    <string name="create_notify_require_values">Поля обязательные для заполнения</string>
+    <string name="create_notify_max_require">Минимальное значение не может быть больше максимального</string>
+    <string name="create_notify_success_desc">Теперь вам будут приходить уведомления</string>
+    <string name="create_notify_success_title">Правило создано</string>
+    <string name="notify_title">Курс валюты</string>
+    <string name="notify_description">Уведомления об изменении курса валюты</string>
 </resources>

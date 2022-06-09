@@ -63,6 +63,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     kapt (Libs.Android.DI.hiltKapt)
     kapt (Libs.Android.Room.roomKapt)
 
@@ -93,7 +94,9 @@ dependencies {
     implementation (Libs.Android.constraintLayout)
     implementation (Libs.Android.Ui.chart)
     implementation (Libs.Android.Ui.layoutManager)
+    implementation (Libs.Android.Ui.alertDialog)
     implementation (Libs.Android.constraintLayout)
+    implementation (Libs.Android.WorkManager.lib)
 
     implementation (Libs.Coroutines.android)
     implementation (Libs.Coroutines.core)
@@ -110,4 +113,6 @@ dependencies {
     androidTestImplementation (Libs.Android.junitExt)
     androidTestImplementation (Libs.Android.espresso)
     androidTestImplementation (Libs.Truth.truthTest)
+    androidTestImplementation (Libs.Android.WorkManager.testing)
+
 }

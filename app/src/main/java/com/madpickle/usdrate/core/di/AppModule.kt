@@ -2,6 +2,7 @@ package com.madpickle.usdrate.core.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.madpickle.usdrate.core.AppContext
 import com.madpickle.usdrate.core.utils.BASE_URL
 import com.madpickle.usdrate.core.utils.DATA_BASE_NAME
@@ -70,4 +71,9 @@ object AppModule {
             .client(okHttpClient)
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideWorkManager(@ApplicationContext context: Context):
+            WorkManager = WorkManager.getInstance(context)
 }

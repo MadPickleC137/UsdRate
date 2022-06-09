@@ -71,6 +71,12 @@ object Libs{
             const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:4.7.2"
         }
 
+        object WorkManager{
+            private const val version = "2.7.1"
+            const val lib = "androidx.work:work-runtime-ktx:$version"
+            const val testing = "androidx.work:work-testing:$version"
+            const val multiprocess = "androidx.work:work-multiprocess:$version"
+        }
         object Paging{
             private const val version = "3.1.1"
             const val runtime = "androidx.paging:paging-runtime:$version"
@@ -80,6 +86,7 @@ object Libs{
         object Ui {
             const val chart = "com.github.AAChartModel:AAChartCore-Kotlin:7.1.0"
             const val layoutManager = "com.google.android.flexbox:flexbox:3.0.0"
+            const val alertDialog = "com.github.oktavianto:ionalert:1.0.4"
         }
     }
 

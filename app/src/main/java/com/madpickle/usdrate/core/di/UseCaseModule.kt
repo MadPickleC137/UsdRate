@@ -5,7 +5,9 @@ import com.madpickle.usdrate.database.CourseRangeDao
 import com.madpickle.usdrate.database.usecase.CoursesRangeUseCase
 import com.madpickle.usdrate.database.usecase.CurrenciesUseCase
 import com.madpickle.usdrate.database.CurrencyDao
+import com.madpickle.usdrate.database.NotificationCourseDao
 import com.madpickle.usdrate.database.usecase.CourseDayUseCase
+import com.madpickle.usdrate.database.usecase.NotificationUseCase
 import com.madpickle.usdrate.remote.CbrUseCase
 import com.madpickle.usdrate.remote.ICbrService
 import dagger.Module
@@ -20,14 +22,22 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
     @Provides
-    fun provideCbrUseCase(cbrService: ICbrService): CbrUseCase = CbrUseCase(cbrService)
+    fun provideCbrUseCase(cbrService: ICbrService):
+            CbrUseCase = CbrUseCase(cbrService)
 
     @Provides
-    fun provideCurrenciesUseCase(currencyDao: CurrencyDao): CurrenciesUseCase = CurrenciesUseCase(currencyDao)
+    fun provideCurrenciesUseCase(currencyDao: CurrencyDao):
+            CurrenciesUseCase = CurrenciesUseCase(currencyDao)
 
     @Provides
-    fun provideCoursesRangeUseCase(courseRangeDao: CourseRangeDao): CoursesRangeUseCase = CoursesRangeUseCase(courseRangeDao)
+    fun provideCoursesRangeUseCase(courseRangeDao: CourseRangeDao):
+            CoursesRangeUseCase = CoursesRangeUseCase(courseRangeDao)
 
     @Provides
-    fun provideCourseDayUseCase(courseDayDao: CourseDayDao): CourseDayUseCase = CourseDayUseCase(courseDayDao)
+    fun provideCourseDayUseCase(courseDayDao: CourseDayDao):
+            CourseDayUseCase = CourseDayUseCase(courseDayDao)
+
+    @Provides
+    fun provideNotificationUseCase(notificationDao: NotificationCourseDao):
+            NotificationUseCase = NotificationUseCase(notificationDao)
 }

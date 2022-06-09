@@ -30,4 +30,10 @@ object DatabaseModule {
     fun provideCourseDayDao(appDatabase: AppDatabase): CourseDayDao {
         return appDatabase.courseDayDao()
     }
+
+    @Provides
+    fun provideNotificationCourseDao(appDatabase: AppDatabase): NotificationCourseDao {
+        return appDatabase.notificationCourseDao()
+    }
+
 }

@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.madpickle.usdrate.R
 import com.madpickle.usdrate.core.extensions.setSystemNavBarColor
+import com.madpickle.usdrate.core.view.NotificationBuilder
 import com.madpickle.usdrate.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         setSystemNavBarColor(R.color.purple_500)
         setContentView(binding.root)
         initNavController()
+        initNotification()
+    }
+
+    private fun initNotification() {
+        NotificationBuilder.createNotificationChannel(application)
     }
 
     private fun initNavController() {

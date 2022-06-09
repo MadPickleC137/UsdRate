@@ -23,5 +23,15 @@
         android:id="@+id/courseRangeFragment"
         android:name="com.madpickle.usdrate.courseRange.CourseRangeFragment"
         android:label="fragment_course_range"
-        tools:layout="@layout/fragment_course_range" />
+        tools:layout="@layout/fragment_course_range" >
+        <action
+            android:id="@+id/action_courseRangeFragment_to_createNotifyFragment"
+            app:destination="@id/createNotifyFragment"
+            app:popUpTo="@id/courseRangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNotifyFragment"
+        android:name="com.madpickle.usdrate.createNotify.CreateNotifyFragment"
+        android:label="fragment_create_notify"
+        tools:layout="@layout/fragment_create_notify" />
 </navigation>
