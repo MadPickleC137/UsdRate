@@ -29,16 +29,21 @@
 7. Почитал внимательно задание и понял что делаю что то не то, но уже поздно поворачивать назад 2 минуты.
 8. рефакторинг 10 минут.
 
+### Architecture
+- MVVM
+- XML View elements
+
 ### Using libraries
 - retrofit
 - okhttp
 - hilt
 - room
 - live data
-- MVVM
 - timber
 - flow
+- viewBinding
 - coroutine
+- work manager
 ---
 ### In the feature 
 - unit test
