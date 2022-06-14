@@ -3,12 +3,9 @@ package com.madpickle.usdrate.remote
 import okhttp3.ResponseBody
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
-import retrofit2.Call
 import retrofit2.Converter
 import retrofit2.Retrofit
 import timber.log.Timber
-import java.io.BufferedReader
-import java.io.StringReader
 import java.lang.reflect.Type
 
 

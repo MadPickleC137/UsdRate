@@ -2,13 +2,13 @@ package com.madpickle.usdrate.core.di
 
 import com.madpickle.usdrate.database.CourseDayDao
 import com.madpickle.usdrate.database.CourseRangeDao
-import com.madpickle.usdrate.database.usecase.CoursesRangeUseCase
-import com.madpickle.usdrate.database.usecase.CurrenciesUseCase
+import com.madpickle.usdrate.database.usecase.CoursesRangeDataSource
+import com.madpickle.usdrate.database.usecase.CurrenciesDataSource
 import com.madpickle.usdrate.database.CurrencyDao
 import com.madpickle.usdrate.database.NotificationCourseDao
-import com.madpickle.usdrate.database.usecase.CourseDayUseCase
-import com.madpickle.usdrate.database.usecase.NotificationUseCase
-import com.madpickle.usdrate.remote.CbrUseCase
+import com.madpickle.usdrate.database.usecase.CourseDayDataSource
+import com.madpickle.usdrate.database.usecase.NotificationDataSource
+import com.madpickle.usdrate.remote.CbrDataSource
 import com.madpickle.usdrate.remote.ICbrService
 import dagger.Module
 import dagger.Provides
@@ -23,21 +23,21 @@ import dagger.hilt.components.SingletonComponent
 object UseCaseModule {
     @Provides
     fun provideCbrUseCase(cbrService: ICbrService):
-            CbrUseCase = CbrUseCase(cbrService)
+            CbrDataSource = CbrDataSource(cbrService)
 
     @Provides
     fun provideCurrenciesUseCase(currencyDao: CurrencyDao):
-            CurrenciesUseCase = CurrenciesUseCase(currencyDao)
+            CurrenciesDataSource = CurrenciesDataSource(currencyDao)
 
     @Provides
     fun provideCoursesRangeUseCase(courseRangeDao: CourseRangeDao):
-            CoursesRangeUseCase = CoursesRangeUseCase(courseRangeDao)
+            CoursesRangeDataSource = CoursesRangeDataSource(courseRangeDao)
 
     @Provides
     fun provideCourseDayUseCase(courseDayDao: CourseDayDao):
-            CourseDayUseCase = CourseDayUseCase(courseDayDao)
+            CourseDayDataSource = CourseDayDataSource(courseDayDao)
 
     @Provides
     fun provideNotificationUseCase(notificationDao: NotificationCourseDao):
-            NotificationUseCase = NotificationUseCase(notificationDao)
+            NotificationDataSource = NotificationDataSource(notificationDao)
 }

@@ -1,7 +1,6 @@
 package com.madpickle.usdrate.database.usecase
 
 import com.madpickle.usdrate.data.CourseDay
-import com.madpickle.usdrate.data.Currency
 import com.madpickle.usdrate.database.CourseDayDao
 import com.madpickle.usdrate.database.CourseDayEntity
 import kotlinx.coroutines.Dispatchers
@@ -13,19 +12,7 @@ import javax.inject.Inject
 /**
  * Created by David Madilyan on 04.06.2022.
  */
-class CourseDayUseCase @Inject constructor(private val courseDayDao: CourseDayDao) {
-
-    /**
-     * Получение всех курсов имеющихся в таблице
-     * */
-    suspend fun getAllDayCourses(): Flow<List<CourseDay>> {
-        return courseDayDao.getAllDayCourses().transform { entityList ->
-            val courses = entityList.map {
-                it.toCourseDay()
-            }.toList()
-            emit(courses)
-        }.flowOn(Dispatchers.IO)
-    }
+class CourseDayDataSource @Inject constructor(private val courseDayDao: CourseDayDao) {
 
     /**
      * Получение списка курсов валют по выбранному дню

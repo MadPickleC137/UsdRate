@@ -15,7 +15,7 @@ import com.madpickle.usdrate.core.utils.Event
 import com.madpickle.usdrate.core.utils.TAG_WORKER
 import com.madpickle.usdrate.data.CourseDay
 import com.madpickle.usdrate.data.NotificationData
-import com.madpickle.usdrate.database.usecase.NotificationUseCase
+import com.madpickle.usdrate.database.usecase.NotificationDataSource
 import com.madpickle.usdrate.worker.CourseEqualWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CreateNotifyViewModel @Inject constructor(private val appContext: AppContext,
                                                 private val workManager: WorkManager,
-                                                private val notificationUseCase: NotificationUseCase): ViewModel(){
+                                                private val notificationDataSource: NotificationDataSource): ViewModel(){
     private val courseDay = MutableLiveData<CourseDay>()
 
     private val _validation = MutableLiveData<ValidationFields>()
@@ -82,7 +82,7 @@ class CreateNotifyViewModel @Inject constructor(private val appContext: AppConte
                 maxValue = _maxValue,
                 nameValute = courseDay.value?.name
             )
-            notificationUseCase.setNewNotification(notify)
+            notificationDataSource.setNewNotification(notify)
             makeWorker()
         }
     }

@@ -12,7 +12,7 @@ import javax.inject.Inject
  *
  * Служит для создания потоков данных и конвертации их в основные типы с которыми уже работает репозиторий
  */
-class CurrenciesUseCase @Inject constructor(private val currencyDao: CurrencyDao) {
+class CurrenciesDataSource @Inject constructor(private val currencyDao: CurrencyDao) {
 
     suspend fun getAllCurrencies(): Flow<List<Currency>> {
         return currencyDao.getAllCurrencies().transform { entityList ->

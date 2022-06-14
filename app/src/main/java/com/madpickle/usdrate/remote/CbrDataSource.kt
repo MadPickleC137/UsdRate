@@ -21,7 +21,7 @@ import kotlin.coroutines.resumeWithException
 /**
  * Created by David Madilyan on 01.06.2022.
  */
-class CbrUseCase @Inject constructor(private val cbrICbrService: ICbrService) {
+class CbrDataSource @Inject constructor(private val cbrICbrService: ICbrService) {
 
     /**
      * Не понадобилось

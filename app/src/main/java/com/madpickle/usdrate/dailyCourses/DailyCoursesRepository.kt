@@ -3,8 +3,8 @@ package com.madpickle.usdrate.dailyCourses
 import androidx.lifecycle.MutableLiveData
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.data.CourseDay
-import com.madpickle.usdrate.database.usecase.CourseDayUseCase
-import com.madpickle.usdrate.remote.CbrUseCase
+import com.madpickle.usdrate.database.usecase.CourseDayDataSource
+import com.madpickle.usdrate.remote.CbrDataSource
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -12,8 +12,8 @@ import javax.inject.Inject
 /**
  * Created by David Madilyan on 04.06.2022.
  */
-class DailyCoursesRepository @Inject constructor(private val cbrUseCase: CbrUseCase,
-                                                 private val courseDayUseCase: CourseDayUseCase
+class DailyCoursesRepository @Inject constructor(private val cbrDataSource: CbrDataSource,
+                                                 private val courseDayDataSource: CourseDayDataSource
 ) {
 
     /**
@@ -22,11 +22,11 @@ class DailyCoursesRepository @Inject constructor(private val cbrUseCase: CbrUseC
      * */
     suspend fun syncDailyCourse(day: String): MutableLiveData<SyncResult> = coroutineScope {
         val result = MutableLiveData(SyncResult.LOADING)
-        val response = cbrUseCase.getCourseByDay(day)
+        val response = cbrDataSource.getCourseByDay(day)
         when {
             response == null -> result.value = SyncResult.ERROR
             response.isNotEmpty() -> {
-                courseDayUseCase.putNewCoursesDay(response, day)
+                courseDayDataSource.putNewCoursesDay(response, day)
                 result.value = SyncResult.SUCCESS
             }
             else -> result.value = SyncResult.EMPTY
@@ -38,6 +38,6 @@ class DailyCoursesRepository @Inject constructor(private val cbrUseCase: CbrUseC
      * Подписка на курсы валют по дню
      * */
     suspend fun flowCoursesByDay(day: String): Flow<List<CourseDay>> {
-        return  courseDayUseCase.getCoursesByDay(day)
+        return  courseDayDataSource.getCoursesByDay(day)
     }
 }

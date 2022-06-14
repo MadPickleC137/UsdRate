@@ -12,7 +12,7 @@ import com.madpickle.usdrate.core.view.NotificationBuilder
 import com.madpickle.usdrate.data.CourseRange
 import com.madpickle.usdrate.data.NotificationData
 import com.madpickle.usdrate.database.AppDatabase
-import com.madpickle.usdrate.remote.CbrUseCase
+import com.madpickle.usdrate.remote.CbrDataSource
 import com.madpickle.usdrate.remote.ICbrService
 import com.madpickle.usdrate.remote.XmlConverterFactory
 import kotlinx.coroutines.Dispatchers
@@ -84,7 +84,7 @@ class CourseEqualWorker(private val ctx: Context, params: WorkerParameters):
         }
     }
 
-    private fun makeRemoteDependency(): CbrUseCase {
+    private fun makeRemoteDependency(): CbrDataSource {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(XmlConverterFactory.create())
@@ -92,6 +92,6 @@ class CourseEqualWorker(private val ctx: Context, params: WorkerParameters):
             .client(OkHttpClient.Builder().build())
             .build()
         val cbrService = retrofit.create(ICbrService::class.java)
-        return  CbrUseCase(cbrService)
+        return  CbrDataSource(cbrService)
     }
 }

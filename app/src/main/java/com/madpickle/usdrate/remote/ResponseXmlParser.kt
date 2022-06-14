@@ -3,13 +3,11 @@ package com.madpickle.usdrate.remote
 import com.madpickle.usdrate.remote.data.XmlObject
 import org.xmlpull.v1.XmlPullParser
 import timber.log.Timber
-import com.madpickle.usdrate.remote.data.CourseDayResponse
 
 /**
  * Created by David Madilyan on 02.06.2022.
  *
  * Дженерик для использования в Response класса сущностях
- * @sample CourseDayResponse
  * @param parser xml содержимое ответа сервера
  * @param tag основной тэг по которому осуществляется разделение данных
  */
