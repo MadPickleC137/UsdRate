@@ -63,7 +63,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     kapt (Libs.Android.DI.hiltKapt)
     kapt (Libs.Android.Room.roomKapt)
 
