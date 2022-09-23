@@ -3,7 +3,7 @@ package com.madpickle.usdrate.dailyCourses
 import androidx.lifecycle.MutableLiveData
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.data.CourseDay
-import com.madpickle.usdrate.database.usecase.CourseDayDataSource
+import com.madpickle.usdrate.database.datasource.CourseDayDataSource
 import com.madpickle.usdrate.remote.CbrDataSource
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow

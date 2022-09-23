@@ -15,7 +15,7 @@ import com.madpickle.usdrate.core.utils.Event
 import com.madpickle.usdrate.core.utils.TAG_WORKER
 import com.madpickle.usdrate.data.CourseDay
 import com.madpickle.usdrate.data.NotificationData
-import com.madpickle.usdrate.database.usecase.NotificationDataSource
+import com.madpickle.usdrate.database.datasource.NotificationDataSource
 import com.madpickle.usdrate.worker.CourseEqualWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

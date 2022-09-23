@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.madpickle.usdrate.core.SyncResult
 import com.madpickle.usdrate.core.extensions.convertToDate
 import com.madpickle.usdrate.data.CourseRange
-import com.madpickle.usdrate.database.usecase.CoursesRangeDataSource
+import com.madpickle.usdrate.database.datasource.CoursesRangeDataSource
 import com.madpickle.usdrate.remote.CbrDataSource
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDateTime

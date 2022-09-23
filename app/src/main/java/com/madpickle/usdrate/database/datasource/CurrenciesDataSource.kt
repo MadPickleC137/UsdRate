@@ -1,4 +1,4 @@
-package com.madpickle.usdrate.database.usecase
+package com.madpickle.usdrate.database.datasource
 
 import com.madpickle.usdrate.data.Currency
 import com.madpickle.usdrate.database.CurrencyDao

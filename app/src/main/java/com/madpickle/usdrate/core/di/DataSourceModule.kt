@@ -2,12 +2,12 @@ package com.madpickle.usdrate.core.di
 
 import com.madpickle.usdrate.database.CourseDayDao
 import com.madpickle.usdrate.database.CourseRangeDao
-import com.madpickle.usdrate.database.usecase.CoursesRangeDataSource
-import com.madpickle.usdrate.database.usecase.CurrenciesDataSource
+import com.madpickle.usdrate.database.datasource.CoursesRangeDataSource
+import com.madpickle.usdrate.database.datasource.CurrenciesDataSource
 import com.madpickle.usdrate.database.CurrencyDao
 import com.madpickle.usdrate.database.NotificationCourseDao
-import com.madpickle.usdrate.database.usecase.CourseDayDataSource
-import com.madpickle.usdrate.database.usecase.NotificationDataSource
+import com.madpickle.usdrate.database.datasource.CourseDayDataSource
+import com.madpickle.usdrate.database.datasource.NotificationDataSource
 import com.madpickle.usdrate.remote.CbrDataSource
 import com.madpickle.usdrate.remote.ICbrService
 import dagger.Module
@@ -20,24 +20,24 @@ import dagger.hilt.components.SingletonComponent
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object UseCaseModule {
+object DataSourceModule {
     @Provides
-    fun provideCbrUseCase(cbrService: ICbrService):
+    fun provideCbrDataSource(cbrService: ICbrService):
             CbrDataSource = CbrDataSource(cbrService)
 
     @Provides
-    fun provideCurrenciesUseCase(currencyDao: CurrencyDao):
+    fun provideCurrenciesDataSource(currencyDao: CurrencyDao):
             CurrenciesDataSource = CurrenciesDataSource(currencyDao)
 
     @Provides
-    fun provideCoursesRangeUseCase(courseRangeDao: CourseRangeDao):
+    fun provideCoursesRangeDataSource(courseRangeDao: CourseRangeDao):
             CoursesRangeDataSource = CoursesRangeDataSource(courseRangeDao)
 
     @Provides
-    fun provideCourseDayUseCase(courseDayDao: CourseDayDao):
+    fun provideCourseDayDataSource(courseDayDao: CourseDayDao):
             CourseDayDataSource = CourseDayDataSource(courseDayDao)
 
     @Provides
-    fun provideNotificationUseCase(notificationDao: NotificationCourseDao):
+    fun provideNotificationDataSource(notificationDao: NotificationCourseDao):
             NotificationDataSource = NotificationDataSource(notificationDao)
 }
